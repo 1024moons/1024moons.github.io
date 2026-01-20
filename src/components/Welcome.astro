@@ -7,15 +7,30 @@ import mailLogo from '../assets/mail.png';
 	<div id="background">
 		<div id="sun"></div>
 		<div class="orbit mercury"></div>
-		<div class="planet mercury"></div>
 		<div class="orbit venus"></div>
-		<div class="planet venus"></div>
 		<div class="orbit mars"></div>
-		<div class="planet mars"></div>
 		<div class="orbit uranus"></div>
-		<div class="planet uranus"></div>
 		<div class="orbit jupiter"></div>
+		<div class="planet mercury"></div>
+		<div class="thirdplanet mercury"></div>
+		<div class="fourthplanet mercury"></div>
+		<div class="antiplanet mercury"></div>
+		<div class="planet venus"></div>
+		<div class="thirdplanet venus"></div>
+		<div class="fourthplanet venus"></div>
+		<div class="antiplanet venus"></div>
+		<div class="planet mars"></div>
+		<div class="thirdplanet mars"></div>
+		<div class="fourthplanet mars"></div>
+		<div class="antiplanet mars"></div>
+		<div class="planet uranus"></div>
+		<div class="thirdplanet uranus"></div>
+		<div class="fourthplanet uranus"></div>
+		<div class="antiplanet uranus"></div>
 		<div class="planet jupiter"></div>
+		<div class="thirdplanet jupiter"></div>
+		<div class="fourthplanet jupiter"></div>
+		<div class="antiplanet jupiter"></div>
 	</div>
 	<main>
 		<section id="hero">
@@ -37,7 +52,7 @@ import mailLogo from '../assets/mail.png';
 
 <style>
 	body{
-		overflow:hidden;
+    		overflow: hidden;
 	}
 	#container {
 		display: flex;
@@ -64,21 +79,21 @@ import mailLogo from '../assets/mail.png';
 	}
 	.mercury{
 		--orbit-radius: 260px;
-		--planet-radius: 4px;
+		--planet-radius: 5px;
 		--planet-border-width: 2px;
-		--planet-orbit-time: 5s;
+		--planet-orbit-time: 20s;
 	}
 	.venus{
 		--orbit-radius: 300px;
 		--planet-radius: 10px;
 		--planet-border-width: 4px;
-		--planet-orbit-time: 10s;
+		--planet-orbit-time: 30s;
 	}
 	.mars{
 		--orbit-radius: 380px;
 		--planet-radius: 15px;
 		--planet-border-width: 4px;
-		--planet-orbit-time: 20s;
+		--planet-orbit-time: 40s;
 	}
 	.uranus{
 		--orbit-radius: 450px;
@@ -90,7 +105,7 @@ import mailLogo from '../assets/mail.png';
 		--orbit-radius: 550px;
 		--planet-radius: 45px;
 		--planet-border-width: 10px;
-		--planet-orbit-time: 120s;
+		--planet-orbit-time: 240s;
 	}
 	.orbit {
 		width:  calc((var(--orbit-radius) * 2) - 4px);
@@ -114,13 +129,74 @@ import mailLogo from '../assets/mail.png';
 		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
 		animation: rotate var(--planet-orbit-time) linear infinite;
 	}
+
+	.antiplanet {
+		width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+		height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+		border-radius: 50%;
+		border: solid var(--planet-border-width);
+		position: absolute;
+		left: calc(var(--orbit-radius) - var(--planet-radius));
+		bottom: calc(-1 * var(--planet-radius));
+		background: white;
+		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
+		animation: antirotate var(--planet-orbit-time) linear infinite;
+	}
+	.thirdplanet {
+		width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+		height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+		border-radius: 50%;
+		border: solid var(--planet-border-width);
+		position: absolute;
+		left: calc(var(--orbit-radius) - var(--planet-radius));
+		bottom: calc(-1 * var(--planet-radius));
+		background: white;
+		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
+		animation: thirdrotate var(--planet-orbit-time) linear infinite;
+	}
+	.fourthplanet {
+		width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+		height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+		border-radius: 50%;
+		border: solid var(--planet-border-width);
+		position: absolute;
+		left: calc(var(--orbit-radius) - var(--planet-radius));
+		bottom: calc(-1 * var(--planet-radius));
+		background: white;
+		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
+		animation: fourthrotate var(--planet-orbit-time) linear infinite;
+	}
 	
 	@keyframes rotate {
-		to {
+		from {
 			transform: rotate(0deg);
 		}
-		from {
+		to {
 			transform: rotate(360deg);
+		}
+	}
+	@keyframes antirotate {
+		from {
+			transform: rotate(180deg);
+		}
+		to {
+			transform: rotate(540deg);
+		}
+	}
+	@keyframes thirdrotate {
+		from {
+			transform: rotate(90deg);
+		}
+		to {
+			transform: rotate(470deg);
+		}
+	}
+	@keyframes fourthrotate {
+		from {
+			transform: rotate(270deg);
+		}
+		to {
+			transform: rotate(630deg);
 		}
 	}
 </style>

@@ -53,6 +53,7 @@ import mailLogo from '../assets/mail.png';
 <style>
 	body{
     		overflow: hidden;
+		font-size: 20px;
 	}
 	#container {
 		display: flex;
@@ -60,49 +61,49 @@ import mailLogo from '../assets/mail.png';
 		justify-content:space-between;
 	}
 	#hero {
-		width:60%;
-		max-width: 900px;
-		margin-left: auto;
+		margin: auto;
+		background:white;
+		padding: 10px;
 	}
 
-	#socials img {
-		width: 40px;
+	#background {
+		z-index: -1;
 	}
 	#sun {
-		width: 480px;
-		height: 480px;
+		width: 180px;
+		height: 180px;
 		position: absolute;
-		bottom: -250px;
-		left: -250px;
+		bottom: -100px;
+		left: -100px;
 		border-radius: 50%;
 		border: solid 10px;
 	}
 	.mercury{
-		--orbit-radius: 260px;
+		--orbit-radius: 150px;
 		--planet-radius: 5px;
 		--planet-border-width: 2px;
 		--planet-orbit-time: 60s;
 	}
 	.venus{
-		--orbit-radius: 300px;
+		--orbit-radius: 260px;
 		--planet-radius: 10px;
 		--planet-border-width: 4px;
 		--planet-orbit-time: 90s;
 	}
 	.mars{
-		--orbit-radius: 380px;
+		--orbit-radius: 300px;
 		--planet-radius: 15px;
 		--planet-border-width: 4px;
 		--planet-orbit-time: 120s;
 	}
 	.uranus{
-		--orbit-radius: 450px;
+		--orbit-radius: 380px;
 		--planet-radius: 8px;
 		--planet-border-width: 2px;
 		--planet-orbit-time: 180s;
 	}
 	.jupiter{
-		--orbit-radius: 550px;
+		--orbit-radius: 450px;
 		--planet-radius: 45px;
 		--planet-border-width: 10px;
 		--planet-orbit-time: 240s;
@@ -116,18 +117,97 @@ import mailLogo from '../assets/mail.png';
 		border-radius: 50%;
 		border: dotted 2px;
 	}
+	.thirdplanet {
+		display:none;
+	}
+	.fourthplanet {
+		display:none;
+	}
+	@media (min-width: 1000px) {
+		#hero {
+			width:60%;
+			max-width: 900px;
+			margin-left: auto;
+		}
+		#sun {
+			width: 480px;
+			height: 480px;
+			position: absolute;
+			bottom: -250px;
+			left: -250px;
+			border-radius: 50%;
+			border: solid 10px;
+		}
+		.mercury{
+			--orbit-radius: 260px;
+			--planet-radius: 5px;
+			--planet-border-width: 2px;
+			--planet-orbit-time: 60s;
+		}
+		.venus{
+			--orbit-radius: 300px;
+			--planet-radius: 10px;
+			--planet-border-width: 4px;
+			--planet-orbit-time: 90s;
+		}
+		.mars{
+			--orbit-radius: 380px;
+			--planet-radius: 15px;
+			--planet-border-width: 4px;
+			--planet-orbit-time: 120s;
+		}
+		.uranus{
+			--orbit-radius: 450px;
+			--planet-radius: 8px;
+			--planet-border-width: 2px;
+			--planet-orbit-time: 180s;
+		}
+		.jupiter{
+			--orbit-radius: 550px;
+			--planet-radius: 45px;
+			--planet-border-width: 10px;
+			--planet-orbit-time: 240s;
+		}
+		.orbit {
+			width:  calc((var(--orbit-radius) * 2) - 4px);
+			height: calc((var(--orbit-radius) * 2) - 4px);
+			position: absolute;
+			bottom: calc(-1 * var(--orbit-radius));
+			left: calc(-1 * var(--orbit-radius));
+			border-radius: 50%;
+			border: dotted 2px;
+		}
+		.thirdplanet {
+			width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+			height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+			border-radius: 50%;
+			border: solid var(--planet-border-width);
+			position: absolute;
+			left: calc(var(--orbit-radius) - var(--planet-radius));
+			bottom: calc(-1 * var(--planet-radius));
+			background: white;
+			transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
+			animation: thirdrotate var(--planet-orbit-time) linear infinite;
+			display:block;
+		}
+		.fourthplanet {
+			width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+			height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
+			border-radius: 50%;
+			border: solid var(--planet-border-width);
+			position: absolute;
+			left: calc(var(--orbit-radius) - var(--planet-radius));
+			bottom: calc(-1 * var(--planet-radius));
+			background: white;
+			transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
+			animation: fourthrotate var(--planet-orbit-time) linear infinite;
+			display:block;
+		}
+	}
 
-	.planet {
-		width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
-		height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
-		border-radius: 50%;
-		border: solid var(--planet-border-width);
-		position: absolute;
-		left: calc(var(--orbit-radius) - var(--planet-radius));
-		bottom: calc(-1 * var(--planet-radius));
-		background: white;
-		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
-		animation: rotate var(--planet-orbit-time) linear infinite;
+
+	#socials img {
+		width: 40px;
 	}
 
 	.antiplanet {
@@ -142,7 +222,7 @@ import mailLogo from '../assets/mail.png';
 		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
 		animation: antirotate var(--planet-orbit-time) linear infinite;
 	}
-	.thirdplanet {
+	.planet {
 		width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
 		height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
 		border-radius: 50%;
@@ -152,19 +232,7 @@ import mailLogo from '../assets/mail.png';
 		bottom: calc(-1 * var(--planet-radius));
 		background: white;
 		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
-		animation: thirdrotate var(--planet-orbit-time) linear infinite;
-	}
-	.fourthplanet {
-		width: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
-		height: calc(2 * (var(--planet-radius) - var(--planet-border-width)));
-		border-radius: 50%;
-		border: solid var(--planet-border-width);
-		position: absolute;
-		left: calc(var(--orbit-radius) - var(--planet-radius));
-		bottom: calc(-1 * var(--planet-radius));
-		background: white;
-		transform-origin: calc(-1 * (var(--orbit-radius) - var(--planet-radius))) var(--planet-radius);
-		animation: fourthrotate var(--planet-orbit-time) linear infinite;
+		animation: rotate var(--planet-orbit-time) linear infinite;
 	}
 	
 	@keyframes rotate {

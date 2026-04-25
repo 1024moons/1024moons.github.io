@@ -1,0 +1,32 @@
+---
+import Planets from './Planets.astro';
+---
+
+<div id="container">
+	<Planets/>
+	<main>
+		<slot/>
+	</main>
+</div>
+
+<style>
+	body{
+		overflow: hidden;
+		font-size: 20px;
+	}
+
+	#container {
+		display: flex;
+		flex-direction: row;
+		justify-content:space-between;
+	}
+
+	@media (min-width: 1000px) {
+		main {
+			width:60%;
+			max-width: 700px;
+			margin-left: auto;
+		}
+	}
+
+</style>

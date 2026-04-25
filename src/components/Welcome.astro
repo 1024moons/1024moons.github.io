@@ -1,55 +1,26 @@
 ---
 import githubLogo from '../assets/github.png';
 import mailLogo from '../assets/mail.png';
-import Planets from './Planets.astro';
+import WithPlanets from './WithPlanets.astro';
 ---
 
-<div id="container">
-	<Planets/>
-	<main>
-		<section id="hero">
-			<h1>
-				Good Morning and Welcome
-			</h1>
-			<p>
-				You are looking at the website of Talha Qamar. 
-				Currently doing my Bachelor's in Electrical Engineering from GIKI.
-				I also program in my free-time. Ask me about crows.
-			</p>
-			<div id="socials">
-				<a href="https://github.com/1024moons"><img src={githubLogo.src} alt="github"></img></a>
-				<a href="mailto:qamartalha@proton.me"><img src={mailLogo.src} alt="mail"></img></a>
-			</div>
-		</section>
-	</main>
-</div>
+<WithPlanets>
+		<h1>
+	 Good Morning and Welcome
+		</h1>
+		<p>
+		You are looking at the website of Talha Qamar. 
+		Currently doing my Bachelor's in Electrical Engineering from GIKI.
+		I also program in my free-time. Ask me about crows.
+		</p>
+		<div id="socials">
+			<a href="https://github.com/1024moons"><img src={githubLogo.src} alt="github"></img></a>
+			<a href="mailto:qamartalha@proton.me"><img src={mailLogo.src} alt="mail"></img></a>
+		</div>
+</WithPlanets>
 
 <style>
-	body{
-		overflow: hidden;
-		font-size: 20px;
-	}
-
-	#container {
-		display: flex;
-		flex-direction: row;
-		justify-content:space-between;
-	}
-	#hero {
-		margin: auto;
-		background:white;
-		padding: 10px;
-	}
-
 	#socials img {
 		width: 40px;
 	}
-	@media (min-width: 1000px) {
-		#hero {
-			width:60%;
-			max-width: 900px;
-			margin-left: auto;
-		}
-	}
-
 </style>

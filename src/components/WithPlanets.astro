@@ -20,12 +20,22 @@ import Planets from './Planets.astro';
 		flex-direction: row;
 		justify-content:space-between;
 	}
+	main {
+		background: white;
+		padding: 10px;
+	}
 
 	@media (min-width: 1000px) {
 		main {
 			width:60%;
 			max-width: 700px;
 			margin-left: auto;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		body {
+			margin: 0;
 		}
 	}
 

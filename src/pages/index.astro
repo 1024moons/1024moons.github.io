@@ -5,5 +5,25 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+<script slot="head" type="application/ld+json">
+	{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Talha Qamar",
+  "url": "https://1024moons.github.io",
+  "sameAs": [
+	"https://bsky.app/profile/1024moons.bsky.social",
+	"https://github.com/1024moons"
+  ]
+}
+</script>
+<script slot="head" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://1024moons.github.io",
+  "name": "1024 moons"
+}
+</script>
 	<Welcome />
 </Layout>

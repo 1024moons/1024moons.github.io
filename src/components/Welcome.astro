@@ -14,6 +14,10 @@ import WithPlanets from './WithPlanets.astro';
 		Currently doing my Bachelor's in Electrical Engineering from GIKI.
 		I also program in my free-time. Ask me about crows.
 		</p>
+		<div id="nav">
+			<div><a class="button" href="./now">Now/</a></div>
+			<div><a class="button" href="./tools">Tools/</a></div>
+		</div>
 		<div id="socials">
 			<a href="https://bsky.app/profile/1024moons.bsky.social"><img src={bskyLogo.src} alt="bluesky"></img></a>
 			<a href="https://github.com/1024moons"><img src={githubLogo.src} alt="github"></img></a>
@@ -22,6 +26,29 @@ import WithPlanets from './WithPlanets.astro';
 </WithPlanets>
 
 <style>
+	p, h1 {
+		padding-left: 2px;
+	}
+	.button{
+		color: black;
+		padding: 5px 30px 5px 2px;
+		transition: font-size 0.2s;
+	}
+	.button:hover{
+		background-color:black;
+		color:white;
+		font-size:21px;
+	}
+	#nav{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: start;
+		height:60px;
+		gap:10px;
+	}
+	#nav > div{
+		width:82px;
+	}
 	#socials{
 		display: flex;
 		flex-wrap: wrap;
@@ -29,11 +56,17 @@ import WithPlanets from './WithPlanets.astro';
 		height:90px;
 		gap:10px;
 	}
+	#socials a {
+		width:50px;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+	}
 	#socials img {
 		width: 40px;
 		transition: width 0.2s;
 	}
 	#socials img:hover {
-		width: 80px;
+		width: 50px;
 	}
 </style>

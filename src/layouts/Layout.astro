@@ -16,7 +16,7 @@ import { ClientRouter } from "astro:transitions";
 		<link rel="canonical" href={canonicalURL} />
 
 <script>
-	async function navigate(url) {
+	async function navigate(url, dontPushState) {
 		const res = await fetch(url);
 		const html = await res.text();
 		const newDoc = new DOMParser().parseFromString(html, 'text/html');
@@ -24,7 +24,8 @@ import { ClientRouter } from "astro:transitions";
 
 		const doSwap = () => {
 			document.querySelector('main').replaceWith(newMain);
-			history.pushState({}, '', url);
+			if(!dontPushState)
+				history.pushState({}, '', url);
 		};
 
 		if (document.startViewTransition) {
@@ -41,7 +42,7 @@ import { ClientRouter } from "astro:transitions";
 		navigate(link.href);
 	});
 
-	window.addEventListener('popstate', () => navigate(location.href, { pushState: false }));
+	window.addEventListener('popstate', () => navigate(location.href, true));
 </script>
 
 		<slot name="head"/>
@@ -64,4 +65,43 @@ import { ClientRouter } from "astro:transitions";
 	a:hover {
 		color: gray;
 	}
+
+
+
+	/* From MDN: view transition example*/
+
+	@keyframes move-out {
+		from {
+			transform: translateX(0%);
+			opacity: 100%;
+		}
+
+		to {
+			transform: translateX(-100%);
+			opacity: 0%;
+		}
+	}
+
+	@keyframes move-in {
+		from {
+			transform: translateX(100%);
+			opacity: 0%;
+		}
+
+		to {
+			transform: translateX(0%);
+			opacity: 100%;
+		}
+	}
+	main {
+		view-transition-name: main;
+	}
+
+	::view-transition-old(main) {
+		animation: 0.2s ease-in both move-out;
+	}
+	::view-transition-new(main) {
+		animation: 0.4s ease-out both move-in;
+	}
 </style>
+

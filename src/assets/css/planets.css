@@ -20,33 +20,33 @@
 	border: solid 10px;
 }
 .mercury{
-	--orbit-radius: 260px;
-	--planet-radius: 5px;
-	--planet-border-width: 2px;
+	--orbit-radius: 270px;
+	--planet-radius: 10px;
+	--planet-border-width: calc(var(--planet-radius) / 4);
 	--planet-orbit-time: 60s;
 }
 .venus{
-	--orbit-radius: 300px;
+	--orbit-radius: 320px;
 	--planet-radius: 10px;
-	--planet-border-width: 4px;
+	--planet-border-width: calc(var(--planet-radius) / 4);
 	--planet-orbit-time: 90s;
 }
 .mars{
 	--orbit-radius: 380px;
 	--planet-radius: 15px;
-	--planet-border-width: 4px;
+	--planet-border-width: calc(var(--planet-radius) / 4);
 	--planet-orbit-time: 120s;
 }
 .uranus{
 	--orbit-radius: 450px;
-	--planet-radius: 8px;
-	--planet-border-width: 2px;
+	--planet-radius: 18px;
+	--planet-border-width: calc(var(--planet-radius) / 4);
 	--planet-orbit-time: 180s;
 }
 .jupiter{
 	--orbit-radius: 550px;
-	--planet-radius: 45px;
-	--planet-border-width: 10px;
+	--planet-radius: 35px;
+	--planet-border-width: calc(var(--planet-radius) / 4);
 	--planet-orbit-time: 240s;
 }
 .orbit {

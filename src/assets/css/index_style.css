@@ -12,29 +12,28 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: start;
-	height:60px;
 	gap:10px;
-}
-#nav > div{
-	width:82px;
 }
 #socials {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	height:90px;
 	gap:10px;
+
+	--big-image-size: 3rem;
+	--small-image-size: 2rem;
 }
 #socials a {
-	width:50px;
+	width: var(--big-image-size);
+	height: var(--big-image-size);
 	display: flex;
 	justify-content: center;
 	align-content: center;
 }
 #socials img {
-	width: 40px;
+	width: var(--small-image-size);
 	transition: width 0.2s;
 }
 #socials img:hover {
-	width: 50px;
+	width: var(--big-image-size);
 }

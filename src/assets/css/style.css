@@ -4,6 +4,12 @@ main {
 	width: fit-content;
 	margin: 0 auto;
 	padding: 1rem;
+	max-width: 500px;
+
+	display:flex;
+	gap: 1rem;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 body {
 	font-family: "EB Garamond", serif;
@@ -28,4 +34,9 @@ a:hover {
 ::-moz-selection {
   background-color: gray; 
   color: white;
+}
+
+/* why are margin defaults so insane */
+* {
+	margin: 0px;
 }

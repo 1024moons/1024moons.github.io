@@ -1,9 +1,10 @@
 ---
-import githubLogo from '../assets/github-svgrepo-com.svg';
-import linkedinLogo from '../assets/linkedin-svgrepo-com.svg';
-import leetcodeLogo from '../assets/leetcode-svgrepo-com.svg';
-import mailLogo from '../assets/email-svgrepo-com.svg';
-import bskyLogo from '../assets/bluesky.svg';
+import githubLogo from '../assets/logos/github-svgrepo-com.svg';
+import linkedinLogo from '../assets/logos/linkedin-svgrepo-com.svg';
+import leetcodeLogo from '../assets/logos/leetcode-svgrepo-com.svg';
+import mailLogo from '../assets/logos/email-svgrepo-com.svg';
+import bskyLogo from '../assets/logos/bluesky.svg';
+import "../assets/css/index_style.css"
 ---
 
 <h1>
@@ -14,7 +15,7 @@ Currently doing my Bachelor's in Electrical Engineering from GIKI.
 I'm also a software engineer. Ask me about crows.
 </p>
 <div id="nav">
-	<div><a class="button" href="./now">Now/</a></div>
+	<div><a href="./now">Now/</a></div>
 </div>
 <div id="socials">
 	<a href="https://bsky.app/profile/1024moons.bsky.social"><img src={bskyLogo.src} alt="bluesky"></img></a>
@@ -25,48 +26,3 @@ I'm also a software engineer. Ask me about crows.
 	<a href="mailto:qamartalha@proton.me"><img src={mailLogo.src} alt="mail"></img></a>
 </div>
 
-<style>
-	p, h1 {
-		padding-left: 2px;
-	}
-	.button{
-		color: black;
-		padding: 5px 30px 5px 2px;
-		transition: font-size 0.2s;
-	}
-	.button:hover{
-		background-color:black;
-		color:white;
-		font-size:21px;
-	}
-	#nav{
-		display: flex;
-		flex-wrap: wrap;
-		align-items: start;
-		height:60px;
-		gap:10px;
-	}
-	#nav > div{
-		width:82px;
-	}
-	#socials{
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		height:90px;
-		gap:10px;
-	}
-	#socials a {
-		width:50px;
-		display: flex;
-		justify-content: center;
-		align-content: center;
-	}
-	#socials img {
-		width: 40px;
-		transition: width 0.2s;
-	}
-	#socials img:hover {
-		width: 50px;
-	}
-</style>

@@ -1,0 +1,42 @@
+p, h1 {
+	padding-left: 2px;
+}
+#nav a {
+	color: black;
+	padding: 5px 30px 5px 2px;
+	transition: font-size 0.2s;
+}
+#nav a:hover {
+	background-color:black;
+	color:white;
+}
+#nav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: start;
+	height:60px;
+	gap:10px;
+}
+#nav > div{
+	width:82px;
+}
+#socials {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	height:90px;
+	gap:10px;
+}
+#socials a {
+	width:50px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+#socials img {
+	width: 40px;
+	transition: width 0.2s;
+}
+#socials img:hover {
+	width: 50px;
+}

@@ -1,0 +1,19 @@
+main {
+	background-color: white;
+	border: 1px solid black;
+	width: fit-content;
+	margin: 0 auto;
+	padding: 1rem;
+}
+body {
+	font-family: "EB Garamond", serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+a {
+	color:black;
+}
+a:hover {
+	color: gray;
+}

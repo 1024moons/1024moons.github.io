@@ -17,3 +17,15 @@ a {
 a:hover {
 	color: gray;
 }
+
+/* Modern browsers */
+::selection {
+  background-color: gray; 
+  color: white;
+}
+
+/* Older Firefox versions support */
+::-moz-selection {
+  background-color: gray; 
+  color: white;
+}

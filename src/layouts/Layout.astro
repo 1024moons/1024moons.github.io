@@ -1,5 +1,6 @@
 ---
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import Planets from "../components/Planets.astro";
 import { ClientRouter } from "astro:transitions";
 ---
 <!doctype html>
@@ -48,11 +49,23 @@ import { ClientRouter } from "astro:transitions";
 		<slot name="head"/>
 	</head>
 	<body>
-		<slot />
+		<div id="container">
+			<Planets />
+			<main>
+				<slot />
+			</main>
+		</div>
 	</body>
 </html>
 
 <style is:global>
+	main {
+		background-color: white;
+		border: 1px solid black;
+		width: fit-content;
+		margin: 0 auto;
+		padding: 1rem;
+	}
 	body {
 		font-family: "EB Garamond", serif;
 		font-optical-sizing: auto;
@@ -69,7 +82,6 @@ import { ClientRouter } from "astro:transitions";
 
 
 	/* From MDN: view transition example*/
-
 	@keyframes move-out {
 		from {
 			transform: translateX(0%);
@@ -98,7 +110,7 @@ import { ClientRouter } from "astro:transitions";
 	}
 
 	::view-transition-old(main) {
-		animation: 0.2s ease-in both move-out;
+		animation: 0.4s ease-in both move-out;
 	}
 	::view-transition-new(main) {
 		animation: 0.4s ease-out both move-in;

@@ -26,6 +26,10 @@ import "../assets/css/index_style.css"
 		const newDoc = new DOMParser().parseFromString(html, 'text/html');
 		const newMain = newDoc.querySelector('main');
 
+		// handling for welcome page
+		const ageSpan = newMain.querySelector("#age-span");
+		if (ageSpan) ageSpan.textContent = new Date().getFullYear() - 2006;
+
 		const doSwap = () => {
 			document.querySelector('main').replaceWith(newMain);
 			if(!dontPushState)

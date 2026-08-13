@@ -52,6 +52,11 @@ import "../assets/css/index_style.css"
 
 	window.addEventListener('popstate', () => navigate(location.href, true));
 </script>
+<script>
+	// For first page load
+	const ageSpan = document.getElementById("age-span");
+	if (ageSpan) ageSpan.textContent = new Date().getFullYear() - 2006;
+</script>
 
 		<slot name="head"/>
 	</head>
